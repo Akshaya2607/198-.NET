@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .t{
+            border: dotted green;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#b1").click(function()
+            {
+                $("img").attr("src","bunny.jpg");
+                var ptext= $("#p1").text();
+                //alert(ptext);
+                var divtext= $("#div1").text();
+                //alert(divtext);
+                $("#t1").removeAttr("border");
+                $("#t1").addClass("t");
+                //$("#t1").attr("border","5px");
+                //$("#t1").attr("border-style","dotted");
+                //$("#t1").attr("border-color","green");
+            });
+            $("#div1").text("This is a Div");
+            $("#p1").text("This is my text");
+        });
+    </script>
+</head>
+<body>
+    <table border= 1px solid black>
+    <tr><td><img height="200px" width="200px" /></td></tr>
+    <tr><td><input type="button" id="b1" value="Display Image" /></td></tr>
+    <tr>
+        <td><div id="div1"> </div></td>
+        <td><p id="p1"></p></td>
+    </tr>
+    </table>
+    <table id="t1" border=2px solid yellow>
+        <tr>
+            <td><p id="p2">Hello Friends!</p></td>
+        </tr>
+    </table>
+</body>
+</html>
