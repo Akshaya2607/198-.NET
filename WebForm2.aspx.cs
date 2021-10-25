@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebAssignment
+namespace ControlsDemo
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
@@ -14,16 +14,32 @@ namespace WebAssignment
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HttpCookie cookie = Request.Cookies["Cart"];
-            int cnt = cookie.Values.Count;
-            for(int i=0;i<cnt;i++)
+            string s = DropDownList1.SelectedValue;
+            switch (s)
             {
-                ListBox2.Items.Add(cookie.Values[i]);
-                
+                case "Personal": MultiView1.SetActiveView(PersonalView);
+                    break;
+                case "Educational": MultiView1.SetActiveView(Education);
+                    break;
+                case "Other": MultiView1.SetActiveView(Other);
+                    break;
+                default:
+                    break;
             }
-            
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            if (FileUpload1.HasFile)
+            {
+                string s = FileUpload1.FileName;
+                FileUpload1.SaveAs(@"D:\Training\AspNet\ControlsDemo\UploadFiles\" + s);
+                Response.Write("File uploaded Successfully");
+
+            }
+
+         }
     }
 }

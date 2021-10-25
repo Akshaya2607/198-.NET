@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebAssignment.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="ControlsDemo.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -9,75 +9,69 @@
         .auto-style1 {
             width: 100%;
         }
-        .auto-style2 {
-            width: 370px;
-        }
-        .auto-style3 {
-            width: 370px;
-            height: 182px;
-        }
-        .auto-style4 {
-            height: 182px;
-        }
-        .auto-style5 {
-            width: 370px;
-            height: 77px;
-        }
-        .auto-style6 {
-            height: 77px;
-        }
-        .auto-style7 {
-            width: 370px;
-            height: 55px;
-        }
-        .auto-style8 {
-            height: 55px;
-        }
-        .auto-style9 {
-            width: 370px;
-            height: 66px;
-        }
-        .auto-style10 {
-            height: 66px;
-        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
+        </div>
         <table class="auto-style1">
             <tr>
-                <td class="auto-style2">Enter Item</td>
                 <td>
-                    <asp:TextBox ID="txtitem" runat="server"></asp:TextBox>
+                    <asp:Label ID="Label1" runat="server" Text="Enter Name"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="txtname" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5"></td>
-                <td class="auto-style6">
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit to list" />
+                <td>
+                    <asp:Label ID="Label2" runat="server" Text="Select Date"></asp:Label>
+                </td>
+                <td>
+                    <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" FirstDayOfWeek="Sunday" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="220px" NextMonthText="&amp;gt; &amp;gt;" NextPrevFormat="ShortMonth" OnSelectionChanged="Calendar1_SelectionChanged" TitleFormat="Month" Width="400px">
+                        <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
+                        <DayStyle Width="14%" />
+                        <NextPrevStyle Font-Size="8pt" ForeColor="White" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#CC3333" ForeColor="White" />
+                        <SelectorStyle BackColor="#CCCCCC" Font-Bold="True" Font-Names="Verdana" Font-Size="8pt" ForeColor="#333333" Width="1%" />
+                        <TitleStyle BackColor="Black" Font-Bold="True" Font-Size="13pt" ForeColor="White" Height="14pt" />
+                        <TodayDayStyle BackColor="#CCCC99" />
+                    </asp:Calendar>
+                    <asp:TextBox ID="txtdate" runat="server"></asp:TextBox>
+                    <br />
                 </td>
             </tr>
             <tr>
-                <td class="auto-style7">Listed Items:</td>
-                <td class="auto-style8">Ur chosen items:</td>
+                <td>
+                    <asp:Label ID="Label3" runat="server" Text="Select Gender"></asp:Label>
+                </td>
+                <td style="margin-left: 40px">
+                    <asp:RadioButton ID="rdomale" runat="server" AutoPostBack="True" GroupName="genderGroup" OnCheckedChanged="rdomale_CheckedChanged" Text="Male" />
+&nbsp;&nbsp;&nbsp;
+                    <asp:RadioButton ID="rdofemale" runat="server" AutoPostBack="True" GroupName="genderGroup" OnCheckedChanged="rdofemale_CheckedChanged" Text="Female" />
+&nbsp;&nbsp;&nbsp;
+                    <asp:RadioButton ID="rdoother" runat="server" AutoPostBack="True" GroupName="genderGroup" OnCheckedChanged="rdoother_CheckedChanged" Text="Other" />
+                </td>
             </tr>
             <tr>
-                <td class="auto-style3">
-                    <asp:ListBox ID="ListBox1" runat="server" AutoPostBack="True" Height="159px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" Width="200px"></asp:ListBox>
-                </td>
-                <td class="auto-style4">
-                    <asp:ListBox ID="ListBox2" runat="server" AutoPostBack="True" Height="159px" Width="200px"></asp:ListBox>
+                <td>&nbsp;</td>
+                <td style="margin-left: 40px">
+                    <asp:TextBox ID="txtgender" runat="server"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style9"></td>
-                <td class="auto-style10">
-                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="OK" />
+                <td>&nbsp;</td>
+                <td style="margin-left: 40px">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="margin-left: 40px">
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
                 </td>
             </tr>
         </table>
-        <div>
-        </div>
     </form>
 </body>
 </html>
