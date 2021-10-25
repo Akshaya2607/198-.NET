@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebAssignment
+namespace ControlsDemo
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
@@ -14,34 +14,38 @@ namespace WebAssignment
 
         }
 
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            txtdate.Text = Calendar1.SelectedDate.ToLongDateString();
+        }
+
+        protected void rdomale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdomale.Checked)
+            {
+                txtgender.Text = "Male";
+            }
+        }
+
+        protected void rdofemale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdofemale.Checked)
+            {
+                txtgender.Text = "Female";
+            }
+        }
+
+        protected void rdoother_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoother.Checked)
+            {
+                txtgender.Text = "Other";
+            }
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ListBox1.Items.Add(txtitem.Text);
-            txtitem.Text = "";
-        }
-        public static Hashtable h = new Hashtable();
-        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ListBox2.Items.Add(ListBox1.SelectedValue);
-            h.Add(ListBox1.SelectedItem.Text, ListBox1.SelectedValue);
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            HttpCookie cookie = new HttpCookie("Cart");
-
-            //cookie.Values.Add(ListBox2.);
-            IDictionaryEnumerator ie = h.GetEnumerator();
-            while (ie.MoveNext())
-            {
-                ListItem i = new ListItem();
-                i.Text=ie.Key.ToString();
-                i.Value = ie.Value.ToString();
-                cookie.Values.Add(i.Text,i.Value);
-                cookie.Expires = DateTime.Now.AddMinutes(10);
-                Response.Cookies.Add(cookie);
-            }
-
+            //Response.Redirect("http:\\www.google.com");
             Response.Redirect("~/WebForm2.aspx");
         }
     }
