@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyApp.Master.cs" Inherits="MasterPagesDemo.App" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 40px;
+        }
+        .auto-style2 {
+            width: 100%;
+        }
+        .auto-style3 {
+            width: 139px;
+        }
+        .auto-style4 {
+            width: 139px;
+            height: 26px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <form id="form1" runat="server">
+        
+        <div class="auto-style1">
+            <asp:Image ID="Image1" runat="server" Height="168px" ImageUrl="~/logo.png" Width="191px" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <asp:Label ID="Label1" runat="server" BorderColor="Black" Text="MY APP"></asp:Label>
+        </div>
+        <div>
+            
+            <table class="auto-style2">
+                <tr>
+                    <td class="auto-style4">
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/About.aspx">Home</asp:HyperLink>
+                    </td>
+                    <td rowspan="4">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Transfer.aspx">Transfer</asp:HyperLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">
+                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Statement.aspx">Statement</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </form>
+</body>
+</html>
