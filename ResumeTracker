@@ -1,0 +1,52 @@
+CREATE TABLE [dbo].[ResumeTracker](
+	[ResumeId] [int] IDENTITY(1,1) NOT NULL,
+	[FullName] [nvarchar](50) NULL,
+	[DOB] [date] NULL,
+	[Age] [int] NULL,
+	[Email] [nvarchar](50) NULL,
+	[PhoneNo] [numeric](10, 0) NULL,
+	[Gender] [nvarchar](50) NULL,
+	[Address] [nvarchar](50) NULL,
+	[Nationality] [nvarchar](50) NULL,
+	[Experience] [nvarchar](50) NULL,
+	[Interest] [nvarchar](50) NULL,
+	[Specialization] [nvarchar](50) NULL,
+	[10thPercent] [numeric](5, 2) NULL,
+	[12thPercent] [numeric](5, 2) NULL,
+	[College] [nvarchar](50) NULL,
+	[GraduationCourse] [nvarchar](50) NULL,
+	[Branch] [nvarchar](50) NULL,
+	[YearOfGraduation] [int] NULL,
+	[TotalCGPA] [numeric](4, 2) NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[ResumeTracker] ADD  CONSTRAINT [DF_ResumeTracker_Nationality]  DEFAULT (N'Indian') FOR [Nationality]
+GO
+
+ALTER TABLE [dbo].[ResumeTracker]  WITH CHECK ADD  CONSTRAINT [chk_age] CHECK  (([Age]>=(18) AND [Age]<=(60)))
+GO
+
+ALTER TABLE [dbo].[ResumeTracker] CHECK CONSTRAINT [chk_age]
+GO
+
+ALTER TABLE [dbo].[ResumeTracker]  WITH CHECK ADD  CONSTRAINT [chk_date] CHECK  (([DOB]<='2003-01-01'))
+GO
+
+ALTER TABLE [dbo].[ResumeTracker] CHECK CONSTRAINT [chk_date]
+GO
+
+ALTER TABLE [dbo].[ResumeTracker]  WITH CHECK ADD  CONSTRAINT [chk_email] CHECK  (([Email] like '%_@__%.__%'))
+GO
+
+ALTER TABLE [dbo].[ResumeTracker] CHECK CONSTRAINT [chk_email]
+GO
+
+ALTER TABLE [dbo].[ResumeTracker]  WITH CHECK ADD  CONSTRAINT [chk_phoneno] CHECK  ((len([phoneno])=(10)))
+GO
+
+ALTER TABLE [dbo].[ResumeTracker] CHECK CONSTRAINT [chk_phoneno]
+GO
+
+
