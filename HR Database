@@ -1,0 +1,40 @@
+CREATE TABLE [dbo].[EmployeeDetails](
+	[EmployeeId] [int] IDENTITY(101,1) NOT NULL,
+	[EmployeeName] [nvarchar](50) NULL,
+	[DateOfBirth] [date] NULL,
+	[Gender] [nvarchar](50) NULL,
+	[EmpStatus] [varchar](50) NULL,
+	[Designation] [nvarchar](50) NULL,
+	[DeptNo] [int] NULL,
+	[Address] [nvarchar](50) NULL,
+	[Nationality] [nvarchar](20) NULL,
+	[PhoneNo] [numeric](10, 0) NULL,
+	[ManagerId] [int] NULL,
+	[WorkLocation] [nvarchar](50) NULL,
+	[JoiningDate] [date] NULL,
+ CONSTRAINT [PK_EmployeeDetails] PRIMARY KEY CLUSTERED 
+(
+	[EmployeeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[EmployeeDetails]  WITH CHECK ADD  CONSTRAINT [chk_dob] CHECK  (([DateOfBirth]>='1965-01-01' AND [DateOfBirth]<='2003-01-01'))
+GO
+
+ALTER TABLE [dbo].[EmployeeDetails] CHECK CONSTRAINT [chk_dob]
+GO
+
+ALTER TABLE [dbo].[EmployeeDetails]  WITH CHECK ADD  CONSTRAINT [chk_gender] CHECK  (([Gender]='Other' OR [Gender]='Female' OR [Gender]='Male'))
+GO
+
+ALTER TABLE [dbo].[EmployeeDetails] CHECK CONSTRAINT [chk_gender]
+GO
+
+
+
+
