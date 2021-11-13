@@ -1,0 +1,26 @@
+CREATE TABLE [dbo].[Performance](
+	[EmpId] [int] NULL,
+	[Division] [nvarchar](50) NULL,
+	[WorkGroup] [nvarchar](50) NULL,
+	[EvaluationDate] [date] NULL,
+	[EvaluatorId] [int] NULL,
+	[EvaluationPeriod] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Performance]  WITH CHECK ADD  CONSTRAINT [FK_Performance_EmployeeDetails] FOREIGN KEY([EmpId])
+REFERENCES [dbo].[EmployeeDetails] ([EmployeeId])
+GO
+
+ALTER TABLE [dbo].[Performance] CHECK CONSTRAINT [FK_Performance_EmployeeDetails]
+GO
+
+ALTER TABLE [dbo].[Performance]  WITH CHECK ADD  CONSTRAINT [FK_Performance_EmployeeDetails1] FOREIGN KEY([EvaluatorId])
+REFERENCES [dbo].[EmployeeDetails] ([EmployeeId])
+GO
+
+ALTER TABLE [dbo].[Performance] CHECK CONSTRAINT [FK_Performance_EmployeeDetails1]
+GO
+
+
