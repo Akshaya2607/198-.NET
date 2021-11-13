@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[EmpProject](
+	[EmpId] [int] NULL,
+	[ProjId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[EmpProject]  WITH CHECK ADD  CONSTRAINT [FK_EmpProject_EmployeeDetails] FOREIGN KEY([EmpId])
+REFERENCES [dbo].[EmployeeDetails] ([EmployeeId])
+GO
+
+ALTER TABLE [dbo].[EmpProject] CHECK CONSTRAINT [FK_EmpProject_EmployeeDetails]
+GO
+
+ALTER TABLE [dbo].[EmpProject]  WITH CHECK ADD  CONSTRAINT [FK_EmpProject_Project] FOREIGN KEY([ProjId])
+REFERENCES [dbo].[Project] ([ProjectId])
+GO
+
+ALTER TABLE [dbo].[EmpProject] CHECK CONSTRAINT [FK_EmpProject_Project]
+GO
+
+
