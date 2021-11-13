@@ -1,0 +1,16 @@
+CREATE TABLE [dbo].[Resignation](
+	[EmpId] [int] NULL,
+	[PhoneNo] [numeric](10, 0) NULL,
+	[NoticePeriodDate] [date] NULL,
+	[NoticePeriod] [int] NULL,
+	[ResignationDate] [date] NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Resignation]  WITH CHECK ADD  CONSTRAINT [FK_Resignation_EmployeeDetails] FOREIGN KEY([EmpId])
+REFERENCES [dbo].[EmployeeDetails] ([EmployeeId])
+GO
+
+ALTER TABLE [dbo].[Resignation] CHECK CONSTRAINT [FK_Resignation_EmployeeDetails]
+GO
