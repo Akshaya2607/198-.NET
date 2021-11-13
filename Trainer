@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[Trainer](
+	[TrainerId] [int] NOT NULL,
+	[TrainerName] [nvarchar](50) NULL,
+	[Address] [nvarchar](50) NULL,
+	[City] [nvarchar](50) NULL,
+	[Technology] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Trainer] PRIMARY KEY CLUSTERED 
+(
+	[TrainerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
