@@ -1,0 +1,39 @@
+CREATE TABLE [dbo].[Training](
+	[EmpId] [int] NULL,
+	[BatchNo] [int] NULL,
+	[BatchName] [nvarchar](50) NULL,
+	[Courses] [nvarchar](50) NULL,
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL,
+	[Status] [varchar](10) NULL,
+	[TrainerId] [int] NULL,
+	[ManagerId] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Training]  WITH CHECK ADD  CONSTRAINT [FK_Training_EmployeeDetails] FOREIGN KEY([TrainerId])
+REFERENCES [dbo].[Trainer] ([TrainerId])
+GO
+
+ALTER TABLE [dbo].[Training] CHECK CONSTRAINT [FK_Training_EmployeeDetails]
+GO
+
+ALTER TABLE [dbo].[Training]  WITH CHECK ADD  CONSTRAINT [FK_Training_EmployeeDetails1] FOREIGN KEY([ManagerId])
+REFERENCES [dbo].[EmployeeDetails] ([EmployeeId])
+GO
+
+ALTER TABLE [dbo].[Training] CHECK CONSTRAINT [FK_Training_EmployeeDetails1]
+GO
+
+ALTER TABLE [dbo].[Training]  WITH CHECK ADD  CONSTRAINT [FK_Training_EmployeeDetails2] FOREIGN KEY([EmpId])
+REFERENCES [dbo].[EmployeeDetails] ([EmployeeId])
+GO
+
+ALTER TABLE [dbo].[Training] CHECK CONSTRAINT [FK_Training_EmployeeDetails2]
+GO
+
+
