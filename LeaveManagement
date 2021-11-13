@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[LeaveManagement](
+	[EmpId] [int] NULL,
+	[TotalLeave] [int] NULL,
+	[BalanceLeave] [int] NULL,
+	[CasualLeave] [int] NULL,
+	[EarnedLeave] [int] NULL,
+	[UnpaidLeave] [int] NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[LeaveManagement]  WITH CHECK ADD  CONSTRAINT [FK_LeaveManagement_EmployeeDetails] FOREIGN KEY([EmpId])
+REFERENCES [dbo].[EmployeeDetails] ([EmployeeId])
+GO
+
+ALTER TABLE [dbo].[LeaveManagement] CHECK CONSTRAINT [FK_LeaveManagement_EmployeeDetails]
+GO
