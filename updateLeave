@@ -1,0 +1,44 @@
+CREATE trigger [dbo].[updateLeave]
+on [dbo].[ApplyLeave]
+after insert
+as
+declare
+@e_id int,
+@type nvarchar(50),
+@no int
+begin
+select @e_id =EmpId, @type=Type, @no=NoOfDays from inserted i
+begin
+
+if(@type='Casual Leave')
+begin
+update LeaveManagement
+set CasualLeave=CasualLeave-@no
+where EmpId=@e_id;
+end
+else if(@type='Earned Leave')
+begin
+update LeaveManagement
+set EarnedLeave=EarnedLeave-@no
+where EmpId=@e_id;
+end
+else
+begin
+update LeaveManagement
+set UnpaidLeave=UnpaidLeave+@no
+where EmpId=@e_id;
+update PayRoll
+set NoOfWorkDays=NoOfWorkDays-@no
+where EmpId=@e_id;
+end
+if(@type='Casual Leave' or @type='Earned Leave')
+begin
+update LeaveManagement
+set BalanceLeave=BalanceLeave-@no
+where EmpId=@e_id;
+end
+end
+end;
+
+
+GO
