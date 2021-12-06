@@ -1,0 +1,7 @@
+CREATE TABLE [dbo].[EmployeeLoginData](
+	[UserId] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL,
+	[Role] [int] NULL
+) ON [PRIMARY]
+
+GO
