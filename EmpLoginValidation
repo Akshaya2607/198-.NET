@@ -1,0 +1,33 @@
+CREATE FUNCTION [dbo].[fn_EmpLoginValidation]
+(
+	@p_userid nvarchar(50),
+	@p_pwd nvarchar(50),
+	@p_role int
+)
+RETURNS bit
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @status bit,
+			@v_username nvarchar(50),
+			@v_password nvarchar(50),
+			@v_role int
+
+	-- Add the T-SQL statements to compute the return value here
+	SELECT @v_username=UserId,@v_password=Password, @v_role=Role from EmployeeLoginData where UserId=@p_userid
+	if(len(@v_password)!=0)
+	begin
+		if(@v_password=@p_pwd)
+		begin
+		set @status=1
+		end
+		else
+		begin
+		set @status=0
+		end
+	end
+
+	-- Return the result of the function
+	RETURN @status
+
+END
