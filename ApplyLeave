@@ -1,0 +1,17 @@
+CREATE TABLE [dbo].[ApplyLeave](
+	[EmpId] [int] NULL,
+	[Reason] [nvarchar](50) NULL,
+	[Type] [nvarchar](50) NULL,
+	[NoOfDays] [int] NULL,
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[ApplyLeave]  WITH CHECK ADD  CONSTRAINT [FK_ApplyLeave_EmployeeDetails] FOREIGN KEY([EmpId])
+REFERENCES [dbo].[EmployeeDetails] ([EmployeeId])
+GO
+
+ALTER TABLE [dbo].[ApplyLeave] CHECK CONSTRAINT [FK_ApplyLeave_EmployeeDetails]
+GO
