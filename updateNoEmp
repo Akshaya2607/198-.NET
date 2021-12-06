@@ -1,0 +1,14 @@
+create trigger [dbo].[updateNoEmp]
+on [dbo].[EmpProject]
+after insert
+as
+declare
+@p_id int
+begin
+select @p_id =ProjId from inserted i
+update Project
+set NoOfEmps=NoOfEmps+1
+where ProjectId=@p_id;
+end;
+
+GO
