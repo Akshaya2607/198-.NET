@@ -1,0 +1,7 @@
+create trigger [dbo].[t1] on [dbo].[EmployeeDetails]
+after insert,update,delete
+as
+begin
+print 'Changes are made'
+end
+GO
